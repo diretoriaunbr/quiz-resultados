@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionando...</title>
+  <script>
+    const score = parseInt(new URLSearchParams(window.location.search).get('score')) || 0;
+    let url = "";
+
+    if (score === 100) {
+      url = "https://tinyurl.com/unbrquiz100";
+    } else if (score >= 80) {
+      url = "https://tinyurl.com/unbrquiz80a99";
+    } else {
+      url = "https://tinyurl.com/unbrquizabaixo80";
+    }
+
+    window.location.href = url;
+  </script>
+</head>
+<body>
+  <p>Redirecionando...</p>
+</body>
+</html>
