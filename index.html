@@ -7,13 +7,13 @@
     const score = parseInt(new URLSearchParams(window.location.search).get('score')) || 0;
     let url = "";
 
-    if (score === 100) {
-      url = "https://tinyurl.com/unbrquiz100";
-    } else if (score >= 80) {
-      url = "https://tinyurl.com/unbrquiz80a99";
-    } else {
-      url = "https://tinyurl.com/unbrquizabaixo80";
-    }
+  if (score === 100) {
+  url = "https://sites.google.com/view/unbrquiz100/início";
+} else if (score >= 80) {
+  url = "https://sites.google.com/view/unbrquiz80a99/início";
+} else {
+  url = "https://sites.google.com/view/unbrquizabaixo80/início";
+}
 
     window.location.href = url;
   </script>
@@ -22,3 +22,4 @@
   <p>Redirecionando...</p>
 </body>
 </html>
+
