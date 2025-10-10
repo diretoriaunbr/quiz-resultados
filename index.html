@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecionando...</title>
-  <script>
-    const score = parseInt(new URLSearchParams(window.location.search).get('score')) || 0;
-    let url = "";
-
-  if (score === 100) {
-  url = "https://sites.google.com/view/unbrquiz100/início";
-} else if (score >= 80) {
-  url = "https://sites.google.com/view/unbrquiz80a99/início";
-} else {
-  url = "https://sites.google.com/view/unbrquizabaixo80/início";
-}
-
-    window.location.href = url;
-  </script>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Processando resultado...</title>
 </head>
 <body>
-  <p>Redirecionando...</p>
+  <p>Processando seu resultado. Se não for redirecionado automaticamente, teste adicionando <code>?score=100</code> no final da URL.</p>
+
+<script>
+(function(){
+  // lê ?score= (pode vir como "85" ou "85%")
+  const params = new URLSearchParams(window.location.search);
+  const raw = params.get('score') || '';
+  // extrai número
+  const m = String(raw).match(/-?\d+(\.\d+)?/);
+  const score = m ? Math.round(Number(m[0])) : NaN;
+
+  if (!isFinite(score)) {
+    // sem score detectado: mostra instrução
+    document.body.innerHTML = '<h2>Resultado não detectado</h2><p>Verifique se o redirect da sua plataforma usa <code>?score={score}</code>.</p>';
+    return;
+  }
+
+  if (score === 100) {
+    window.location.href = "grupo100.html";
+  } else if (score >= 80) {
+    window.location.href = "grupo80a99.html";
+  } else {
+    window.location.href = "grupoabaixo80.html";
+  }
+})();
+</script>
 </body>
 </html>
-
