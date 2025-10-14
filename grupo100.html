@@ -2,13 +2,49 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Grupo dos 100%</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado 100%</title>
+  <script>
+    // Bloqueio de acesso direto
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = urlParams.get('score');
+    if (!score) {
+      alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
+      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+    }
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+    .card {
+      background: rgba(255,255,255,0.1);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: auto;
+    }
+    a {
+      background: #ffca28;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Parabéns! Você acertou 100% 🎯</h1>
-  <p>Entre para o grupo exclusivo de participantes nota 100:</p>
-  <a href="https://chat.whatsapp.com/SEU-LINK-DO-GRUPO100" target="_blank">
-    👉 Entrar no grupo 100%
-  </a>
+  <div class="card">
+    <h1>🎯 Parabéns, compatriota!</h1>
+    <p>Você acertou 100% das respostas! É um verdadeiro seguidor das ideias do Dr. Enéas.</p>
+    <a href="https://chat.whatsapp.com/link_do_grupo_100" target="_blank">Entrar no grupo dos 100%</a>
+  </div>
 </body>
 </html>
