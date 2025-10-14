@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultado do Quiz</title>
   <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const score = urlParams.get('score');
-    if (!score) {
+    // Verifica se veio do quiz
+    const ref = document.referrer;
+    const quizURL = "https://unbrquizeneas.app.do/";
+    
+    // Se o acesso não veio da plataforma do quiz, bloqueia
+    if (!ref.includes(quizURL)) {
       alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
-      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+      window.location.href = quizURL + "voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
     }
   </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
