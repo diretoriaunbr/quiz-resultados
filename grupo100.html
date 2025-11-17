@@ -4,23 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultado 100%</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffffff; /* Fundo branco */
-      color: #1b5e20; /* Verde escuro para textos */
+      background-color: #ffffff;
+      color: #1b5e20; 
       text-align: center;
       padding: 40px;
       margin: 0;
     }
 
     h1 {
-      color: #fbc02d; /* Amarelo para destaque */
+      color: #fbc02d;
     }
 
     .card {
-      background-color: #e8f5e9; /* Verde claro suave */
-      border: 2px solid #fbc02d; /* Detalhe amarelo */
+      background-color: #e8f5e9;
+      border: 2px solid #fbc02d;
       padding: 25px;
       border-radius: 15px;
       max-width: 600px;
@@ -29,8 +30,8 @@
     }
 
     a {
-      background-color: #fbc02d; /* Amarelo */
-      color: #1b5e20; /* Verde escuro */
+      background-color: #fbc02d;
+      color: #1b5e20;
       padding: 12px 25px;
       border-radius: 10px;
       text-decoration: none;
@@ -41,7 +42,7 @@
     }
 
     a:hover {
-      background-color: #ffeb3b; /* Amarelo mais claro ao passar o mouse */
+      background-color: #ffeb3b;
     }
 
     p {
@@ -55,16 +56,41 @@
       a { padding: 10px 20px; font-size: 14px; }
     }
   </style>
+
+  <script>
+    // Proteção anti acesso direto / copy-paste da URL
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const score = params.get("score");
+
+      // Se não tiver o score ou não for exatamente 100, bloqueia
+      if (score === null || score !== "100") {
+        alert("Atenção! Você precisa participar do quiz para visualizar a página de vencedores.");
+        window.location.href = "https://diretoriaunbr.github.io/"; 
+      }
+    };
+  </script>
+
 </head>
+
 <body>
+
   <h1>Parabéns! Você acertou 100% 🎯</h1>
+
   <div class="card">
     <p>
-      Parabéns, compatriota! Seu pensamento está muito próximo ao de Dr. Enéas e outros pronistas. Temos um grupo de WhatsApp exclusivo para outros compatriotas como você, que também foram <strong>VENCEDORES</strong> neste modesto teste. A partir deste grupo, estamos nos organizando para trazer de volta nosso partido PRONA! Clique no link abaixo e some esforços conosco! Gratidão por sua participação!
+      Parabéns, compatriota! Seu pensamento está muito próximo ao de Dr. Enéas e outros pronistas.
+      Temos um grupo de WhatsApp exclusivo para compatriotas como você, que também foram 
+      <strong>VENCEDORES</strong> neste modesto teste.
+      A partir deste grupo, estamos nos organizando para trazer de volta nosso partido PRONA!
+      Clique no link abaixo e some esforços conosco!  
+      Gratidão por sua participação!
     </p>
+
     <a href="https://chat.whatsapp.com/SEU-LINK-DO-GRUPO100" target="_blank">
       👉 Entrar no grupo 100%
     </a>
   </div>
+
 </body>
 </html>
