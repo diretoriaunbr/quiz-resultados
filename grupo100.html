@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -12,6 +13,7 @@
       padding: 40px;
       margin: 0;
     }
+
     .card {
       background: rgba(255,255,255,0.1);
       padding: 20px;
@@ -19,6 +21,7 @@
       max-width: 500px;
       margin: 30px auto;
     }
+
     a {
       background: #ffca28;
       color: #000;
@@ -28,7 +31,13 @@
       font-weight: bold;
       display: inline-block;
       margin-top: 15px;
+      transition: background 0.3s;
     }
+
+    a:hover {
+      background: #ffc107;
+    }
+
     @media (max-width: 600px) {
       body { padding: 20px; }
       .card { padding: 15px; }
