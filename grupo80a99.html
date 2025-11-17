@@ -3,47 +3,94 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Resultado Intermediário</title>
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const score = urlParams.get('score');
-    if (!score) {
-      alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
-      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
-    }
-  </script>
+  <title>Resultado — 80% a 99%</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #fbc02d, #f57c00);
-      color: #fff;
+      background-color: #ffffff;
+      color: #1b5e20;
       text-align: center;
       padding: 40px;
+      margin: 0;
     }
+
+    h1 {
+      color: #fbc02d;
+    }
+
     .card {
-      background: rgba(255,255,255,0.15);
-      padding: 20px;
+      background-color: #e8f5e9;
+      border: 2px solid #fbc02d;
+      padding: 25px;
       border-radius: 15px;
-      max-width: 500px;
-      margin: auto;
+      max-width: 600px;
+      margin: 30px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     a {
-      background: #fff;
-      color: #f57c00;
-      padding: 10px 20px;
+      background-color: #fbc02d;
+      color: #1b5e20;
+      padding: 12px 25px;
       border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
-      margin-top: 15px;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background-color: #ffeb3b;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 20px; }
+      .card { padding: 20px; }
+      a { padding: 10px 20px; font-size: 14px; }
     }
   </style>
+
+  <script>
+    // Proteção anti acesso direto / copy-paste
+    window.onload = function() {
+      const params = new URLSearchParams(window.location.search);
+      const score = params.get("score");
+
+      // só permite valores de 80 a 99
+      if (!score || isNaN(score) || score < 80 || score >= 100) {
+        alert("Atenção! Você precisa participar do quiz para visualizar esta página.");
+        window.location.href = "https://diretoriaunbr.github.io/";
+      }
+    };
+  </script>
+
 </head>
+
 <body>
+
+  <h1>Você mandou muito bem! 🎯</h1>
+
   <div class="card">
-    <h1>💪 Muito bom!</h1>
-    <p>Você acertou a maioria das respostas! Está no caminho certo para entender o pensamento do Dr. Enéas.</p>
-    <a href="https://chat.whatsapp.com/link_do_grupo_intermediario" target="_blank">Entrar no grupo intermediário</a>
+    <p>
+      Passou perto! Você teve uma ótima quantidade de acertos.  
+      Para você, que está muito próximo da visão política de Dr. Enéas e de outros grandes pronistas, 
+      criamos um grupo de formação política e apoio dedicado à volta do PRONA.
+      Será uma honra tê-lo(a) conosco, para juntos continuarmos aprendendo e aprofundando o programa do partido PRONA.
+      Clique no link abaixo e some conosco no grupo de WhatsApp.  
+      Gratidão por sua participação!
+    </p>
+
+    <a href="https://chat.whatsapp.com/SEU-LINK-GRUPO-80-99" target="_blank">
+      👉 Entrar no grupo 80% a 99%
+    </a>
   </div>
+
 </body>
 </html>
