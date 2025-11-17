@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultado 80% a 99%</title>
 
+  <script>
+    // Bloqueio de acesso direto (copy/paste)
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawScore = urlParams.get('score');
+
+    if (!rawScore) {
+      alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
+      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+    } else {
+      // Converter "87%" → 87
+      const score = parseInt(rawScore.replace("%", ""));
+
+      // Bloquear se score estiver fora da faixa 80–99
+      if (isNaN(score) || score < 80 || score > 99) {
+        alert("Acesso negado! Esta página é apenas para participantes com 80% a 99% de acertos.");
+        window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+      }
+    }
+  </script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
