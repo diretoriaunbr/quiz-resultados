@@ -1,18 +1,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Grupo dos 100%</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultado 100%</title>
-  <script>
-    // Bloqueio de acesso direto
-    const urlParams = new URLSearchParams(window.location.search);
-    const score = urlParams.get('score');
-    if (!score) {
-      alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
-      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
-    }
-  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -20,13 +10,14 @@
       color: white;
       text-align: center;
       padding: 40px;
+      margin: 0;
     }
     .card {
       background: rgba(255,255,255,0.1);
       padding: 20px;
       border-radius: 15px;
       max-width: 500px;
-      margin: auto;
+      margin: 30px auto;
     }
     a {
       background: #ffca28;
@@ -38,18 +29,31 @@
       display: inline-block;
       margin-top: 15px;
     }
+    @media (max-width: 600px) {
+      body { padding: 20px; }
+      .card { padding: 15px; }
+      a { padding: 8px 15px; font-size: 14px; }
+    }
   </style>
+  <script>
+    // Bloqueio de acesso estrito: apenas score=100
+    const urlParams = new URLSearchParams(window.location.search);
+    const score = parseInt(urlParams.get('score'), 10);
+
+    if (score !== 100) {
+      alert("Acesso negado! Você precisa concluir o teste e acertar 100% para ver esta página.");
+      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+    }
+  </script>
 </head>
 <body>
   <h1>Parabéns! Você acertou 100% 🎯</h1>
-  <p>Entre para o grupo exclusivo de participantes nota 100:</p>
-  <a href="https://chat.whatsapp.com/SEU-LINK-DO-GRUPO100" target="_blank">
-    👉 Entrar no grupo 100%
-  </a>
   <div class="card">
-    <h1>🎯 Parabéns, compatriota!</h1>
-    <p>Você acertou 100% das respostas! É um verdadeiro seguidor das ideias do Dr. Enéas.</p>
-    <a href="https://chat.whatsapp.com/link_do_grupo_100" target="_blank">Entrar no grupo dos 100%</a>
+    <p>Entre para o grupo exclusivo de participantes nota 100:</p>
+    <a href="https://chat.whatsapp.com/SEU-LINK-DO-GRUPO100" target="_blank">
+      👉 Entrar no grupo 100%
+    </a>
+    <p>Você é um verdadeiro seguidor das ideias do Dr. Enéas!</p>
   </div>
 </body>
 </html>
