@@ -1,107 +1,90 @@
-<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Resultado — 80% a 99%</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado 80% a 99%</title>
+  <script>
+    // Proteção anti acesso direto (copy/paste)
+    const urlParams = new URLSearchParams(window.location.search);
+    const scoreRaw = urlParams.get('score');
+
+    // Se não veio score → bloqueia
+    if (!scoreRaw) {
+      alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
+      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+    }
+
+    // Converter "87%" → 87
+    const score = parseInt(scoreRaw.replace('%', ''));
+
+    // Verificar faixa (80 a 99)
+    if (isNaN(score) || score < 80 || score >= 100) {
+      alert("Acesso negado! Esta página é destinada apenas a participantes que acertaram entre 80% e 99%.");
+      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+    }
+  </script>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #1b5e20;
-      text-align: center;
+      background: #ffffff;
+      color: #222;
       padding: 40px;
-      margin: 0;
+      text-align: center;
     }
-
-    h1 {
-      color: #fbc02d;
-      margin-top: 10px;
-    }
-
     .card {
-      background-color: #e8f5e9;
-      border: 2px solid #fbc02d;
+      max-width: 600px;
+      margin: auto;
+      background: linear-gradient(135deg, #009739, #f7d117);
+      color: white;
       padding: 25px;
       border-radius: 15px;
-      max-width: 700px;
-      margin: 30px auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
-
-    a.btn {
-      background-color: #fbc02d;
-      color: #1b5e20;
-      padding: 12px 25px;
-      border-radius: 10px;
+    a {
+      background: #006400;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
       margin-top: 20px;
-      transition: background 0.25s;
     }
-
-    a.btn:hover {
-      background-color: #ffeb3b;
-    }
-
-    p {
-      font-size: 16px;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    @media (max-width: 600px) {
-      body { padding: 20px; }
-      .card { padding: 18px; }
-      a.btn { padding: 10px 18px; font-size: 14px; }
+    a:hover {
+      opacity: 0.85;
     }
   </style>
-
-  <script>
-    window.onload = function() {
-      const params = new URLSearchParams(window.location.search);
-      const rawScore = params.get("score");
-
-      // Bloqueia apenas quando NÃO houver score
-      if (!rawScore) {
-        alert("Atenção! Você precisa participar do quiz para visualizar esta página.");
-        window.location.href = "https://diretoriaunbr.github.io/";
-        return;
-      }
-
-      // Extrai número de qualquer formato (85, 85%, 85.0 etc.)
-      const match = rawScore.match(/\d+(\.\d+)?/);
-      const score = match ? parseFloat(match[0]) : null;
-
-      // Se o score existir mas estiver fora da faixa 80–99 → bloqueia
-      if (score === null || score < 80 || score >= 100) {
-        alert("Atenção! Você precisa participar do quiz para visualizar esta página.");
-        window.location.href = "https://diretoriaunbr.github.io/";
-      }
-    };
-  </script>
-
 </head>
 
 <body>
-
-  <h1>Você mandou muito bem! 🎯</h1>
+  <h1>Muito bem! Você ficou perto dos 100% 🎯</h1>
 
   <div class="card">
+    <h2>Quase lá, compatriota!</h2>
+
     <p>
-      Passou perto! Você teve uma ótima quantidade de acertos.  
-      Para você, que está muito próximo da visão política de Dr. Enéas e de outros grandes pronistas, 
-      criamos um grupo de formação política e apoio dedicado à volta do PRONA.
-      Será uma honra tê-lo(a) conosco, para juntos continuarmos aprendendo e aprofundando o programa do partido PRONA.
-      Clique no link abaixo e some conosco no grupo de WhatsApp.  
-      Gratidão por sua participação!
+      Você teve um excelente desempenho! Está muito próximo da visão política de
+      Dr. Enéas e dos grandes pronistas.
     </p>
 
-    <a class="btn" href="https://chat.whatsapp.com/SEU-LINK-GRUPO-80-99" target="_blank" rel="noopener">
-      👉 Entrar no grupo (80%–99%)
+    <p>
+      Criamos um grupo especial de <strong>formação política</strong> e
+      <strong>apoio ao retorno do PRONA</strong>, feito exclusivamente para participantes como você.
+    </p>
+
+    <p>
+      Será uma honra tê-lo(a) conosco para continuarmos aprendendo juntos sobre o programa do PRONA.
+    </p>
+
+    <p><strong>Clique no link abaixo e some esforços conosco!</strong></p>
+
+    <a href="https://chat.whatsapp.com/SEU-LINK-GRUPO-80-99" target="_blank">
+      👉 Entrar no grupo de formação (80% a 99%)
     </a>
+
+    <p style="margin-top:18px; font-size: 0.9em; opacity: 0.9;">
+      Gratidão por sua participação!
+    </p>
   </div>
 
 </body>
