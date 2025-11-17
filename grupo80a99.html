@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Resultado — 80% a 99%</title>
 
   <style>
@@ -17,6 +17,7 @@
 
     h1 {
       color: #fbc02d;
+      margin-top: 10px;
     }
 
     .card {
@@ -24,12 +25,12 @@
       border: 2px solid #fbc02d;
       padding: 25px;
       border-radius: 15px;
-      max-width: 600px;
+      max-width: 700px;
       margin: 30px auto;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
 
-    a {
+    a.btn {
       background-color: #fbc02d;
       color: #1b5e20;
       padding: 12px 25px;
@@ -38,39 +39,55 @@
       font-weight: bold;
       display: inline-block;
       margin-top: 20px;
-      transition: background 0.3s;
+      transition: background 0.25s;
     }
 
-    a:hover {
+    a.btn:hover {
       background-color: #ffeb3b;
     }
 
     p {
       font-size: 16px;
       line-height: 1.5;
+      margin: 0;
     }
 
     @media (max-width: 600px) {
       body { padding: 20px; }
-      .card { padding: 20px; }
-      a { padding: 10px 20px; font-size: 14px; }
+      .card { padding: 18px; }
+      a.btn { padding: 10px 18px; font-size: 14px; }
     }
   </style>
 
   <script>
-    // Proteção anti acesso direto / copy-paste
+    // Proteção contra acesso direto (copy/paste)
+    // Apenas bloqueia quando NÃO houver um score válido
     window.onload = function() {
       const params = new URLSearchParams(window.location.search);
-      const score = params.get("score");
+      const scoreRaw = params.get("score");
 
-      // só permite valores de 80 a 99
-      if (!score || isNaN(score) || score < 80 || score >= 100) {
+      // Função utilitária: extrai a primeira ocorrência de número (inteiro ou decimal) em uma string
+      function extractNumber(str) {
+        if (!str) return null;
+        // procura por padrão numérico: pode ser "85", "85%", "85.0", "100.00", etc.
+        const m = str.match(/-?\d+(\.\d+)?/);
+        return m ? parseFloat(m[0]) : null;
+      }
+
+      const numericScore = extractNumber(scoreRaw);
+
+      // valida: deve existir número e estar no intervalo [80, 100), ou seja 80 ≤ score < 100
+      const valid = (numericScore !== null) && (numericScore >= 80) && (numericScore < 100);
+
+      if (!valid) {
+        // Acesso considerado direto / inválido — bloquear
         alert("Atenção! Você precisa participar do quiz para visualizar esta página.");
+        // redireciona para a página principal do seu site (ajuste se precisar)
         window.location.href = "https://diretoriaunbr.github.io/";
       }
+      // caso válido: deixa a página carregar normalmente
     };
   </script>
-
 </head>
 
 <body>
@@ -87,8 +104,8 @@
       Gratidão por sua participação!
     </p>
 
-    <a href="https://chat.whatsapp.com/SEU-LINK-GRUPO-80-99" target="_blank">
-      👉 Entrar no grupo 80% a 99%
+    <a class="btn" href="https://chat.whatsapp.com/SEU-LINK-GRUPO-80-99" target="_blank" rel="noopener">
+      👉 Entrar no grupo (80%–99%)
     </a>
   </div>
 
