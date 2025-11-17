@@ -13,22 +13,24 @@
   // lê ?score= (pode vir como "85" ou "85%")
   const params = new URLSearchParams(window.location.search);
   const raw = params.get('score') || '';
-  // extrai número
+  
+  // extrai número do score
   const m = String(raw).match(/-?\d+(\.\d+)?/);
   const score = m ? Math.round(Number(m[0])) : NaN;
 
-  if (!isFinite(score)) {
-    // sem score detectado: mostra instrução
-    document.body.innerHTML = '<h2>Resultado não detectado</h2><p>Verifique se o redirect da sua plataforma usa <code>?score={score}</code>.</p>';
-    return;
-  }
-
+  // redirecionamento claro e explícito
   if (score === 100) {
+    // 100% → página exclusiva
     window.location.href = "grupo100.html";
-  } else if (score >= 80) {
+  } else if (score >= 80 && score <= 99) {
+    // qualquer score entre 80 e 99 inclusive
     window.location.href = "grupo80a99.html";
-  } else {
+  } else if (score >= 0 && score < 80) {
+    // abaixo de 80%
     window.location.href = "grupoabaixo80.html";
+  } else {
+    // score inválido ou não detectado
+    document.body.innerHTML = '<h2>Resultado não detectado</h2><p>Verifique se o redirect da sua plataforma usa <code>?score={score}</code>.</p>';
   }
 })();
 </script>
