@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Processando resultado...</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultado 100%</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff; /* Fundo branco */
+      color: #1b5e20; /* Verde escuro para textos */
+      text-align: center;
+      padding: 40px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #fbc02d; /* Amarelo para destaque */
+    }
+
+    .card {
+      background-color: #e8f5e9; /* Verde claro suave */
+      border: 2px solid #fbc02d; /* Detalhe amarelo */
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 30px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    a {
+      background-color: #fbc02d; /* Amarelo */
+      color: #1b5e20; /* Verde escuro */
+      padding: 12px 25px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
+      transition: background 0.3s;
+    }
+
+    a:hover {
+      background-color: #ffeb3b; /* Amarelo mais claro ao passar o mouse */
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 20px; }
+      .card { padding: 20px; }
+      a { padding: 10px 20px; font-size: 14px; }
+    }
+  </style>
 </head>
 <body>
-  <p>Processando seu resultado. Se não for redirecionado automaticamente, teste adicionando <code>?score=100</code> no final da URL.</p>
-
-<script>
-(function(){
-  // lê ?score= (pode vir como "85" ou "85%")
-  const params = new URLSearchParams(window.location.search);
-  const raw = params.get('score') || '';
-  // extrai número
-  const m = String(raw).match(/-?\d+(\.\d+)?/);
-  const score = m ? Math.round(Number(m[0])) : NaN;
-
-  if (!isFinite(score)) {
-    // sem score detectado: mostra instrução
-    document.body.innerHTML = '<h2>Resultado não detectado</h2><p>Verifique se o redirect da sua plataforma usa <code>?score={score}</code>.</p>';
-    return;
-  }
-
-  if (score === 100) {
-    window.location.href = "grupo100.html";
-  } else if (score >= 80) {
-    window.location.href = "grupo80a99.html";
-  } else {
-    window.location.href = "grupoabaixo80.html";
-  }
-})();
-</script>
+  <h1>Parabéns! Você acertou 100% 🎯</h1>
+  <div class="card">
+    <p>
+      Parabéns, compatriota! Seu pensamento está muito próximo ao de Dr. Enéas e outros pronistas. Temos um grupo de WhatsApp exclusivo para outros compatriotas como você, que também foram <strong>VENCEDORES</strong> neste modesto teste. A partir deste grupo, estamos nos organizando para trazer de volta nosso partido PRONA! Clique no link abaixo e some esforços conosco! Gratidão por sua participação!
+    </p>
+    <a href="https://chat.whatsapp.com/SEU-LINK-DO-GRUPO100" target="_blank">
+      👉 Entrar no grupo 100%
+    </a>
+  </div>
 </body>
 </html>
