@@ -60,34 +60,29 @@
   </style>
 
   <script>
-    // Proteção contra acesso direto (copy/paste)
-    // Apenas bloqueia quando NÃO houver um score válido
     window.onload = function() {
       const params = new URLSearchParams(window.location.search);
-      const scoreRaw = params.get("score");
+      const rawScore = params.get("score");
 
-      // Função utilitária: extrai a primeira ocorrência de número (inteiro ou decimal) em uma string
-      function extractNumber(str) {
-        if (!str) return null;
-        // procura por padrão numérico: pode ser "85", "85%", "85.0", "100.00", etc.
-        const m = str.match(/-?\d+(\.\d+)?/);
-        return m ? parseFloat(m[0]) : null;
+      // Bloqueia apenas quando NÃO houver score
+      if (!rawScore) {
+        alert("Atenção! Você precisa participar do quiz para visualizar esta página.");
+        window.location.href = "https://diretoriaunbr.github.io/";
+        return;
       }
 
-      const numericScore = extractNumber(scoreRaw);
+      // Extrai número de qualquer formato (85, 85%, 85.0 etc.)
+      const match = rawScore.match(/\d+(\.\d+)?/);
+      const score = match ? parseFloat(match[0]) : null;
 
-      // valida: deve existir número e estar no intervalo [80, 100), ou seja 80 ≤ score < 100
-      const valid = (numericScore !== null) && (numericScore >= 80) && (numericScore < 100);
-
-      if (!valid) {
-        // Acesso considerado direto / inválido — bloquear
+      // Se o score existir mas estiver fora da faixa 80–99 → bloqueia
+      if (score === null || score < 80 || score >= 100) {
         alert("Atenção! Você precisa participar do quiz para visualizar esta página.");
-        // redireciona para a página principal do seu site (ajuste se precisar)
         window.location.href = "https://diretoriaunbr.github.io/";
       }
-      // caso válido: deixa a página carregar normalmente
     };
   </script>
+
 </head>
 
 <body>
