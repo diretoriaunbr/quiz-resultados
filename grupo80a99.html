@@ -3,24 +3,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Resultado 80% a 99%</title>
-  <script>
-    // Proteção anti acesso direto (copy/paste)
-    const urlParams = new URLSearchParams(window.location.search);
-    const scoreRaw = urlParams.get('score');
 
-    // Se não veio score → bloqueia
-    if (!scoreRaw) {
-      alert("Acesso negado! Você precisa concluir o teste antes de ver esta página.");
-      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
-    }
+  <script>
+    // Apenas capturamos o score, sem proteção
+    const urlParams = new URLSearchParams(window.location.search);
+    const rawScore = urlParams.get('score');
 
     // Converter "87%" → 87
-    const score = parseInt(scoreRaw.replace('%', ''));
-
-    // Verificar faixa (80 a 99)
-    if (isNaN(score) || score < 80 || score >= 100) {
-      alert("Acesso negado! Esta página é destinada apenas a participantes que acertaram entre 80% e 99%.");
-      window.location.href = "https://unbrquizeneas.app.do/voce-ve-a-politica-como-dr-eneas-faca-o-teste-e-descubra-347-3479845";
+    let score = null;
+    if (rawScore) {
+      score = parseInt(rawScore.replace("%",""));
+      console.log("Score recebido:", score);
+    } else {
+      console.log("Nenhum score recebido.");
     }
   </script>
 
@@ -57,7 +52,8 @@
 </head>
 
 <body>
-  <h1>Muito bem! Você ficou perto dos 100% 🎯</h1>
+
+  <h1>Você ficou perto dos 100% 🎯</h1>
 
   <div class="card">
     <h2>Quase lá, compatriota!</h2>
